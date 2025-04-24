@@ -1,3 +1,4 @@
+#structure for fewshot training
 import os
 import random
 import numpy as np
@@ -29,6 +30,7 @@ class FewShotDataset:
         img = img.astype(np.float32) / 255.0
         return img
 
+    #defining fewshot alg
     def sample_episode(self, n_way=3, k_shot=5, q_queries=5):
         selected_classes = random.sample(list(self.class_to_images.keys()), n_way)
         support_images, support_labels = [], []
@@ -54,7 +56,9 @@ class FewShotDataset:
             np.array(query_images),
             np.array(query_labels),
         )
-
+# concept of prototypical net - Prototypical Networks learn to map images into an embedding space 
+# where each class is represented by the mean of its support embeddings (a prototype). During inference, a query image is classified by 
+# finding the nearest prototype using a distance metric like Euclidean distance
 class PrototypicalNet(nn.Module):
     def __init__(self, input_shape=(3, 256, 256), embedding_dim=64):
         super().__init__()
