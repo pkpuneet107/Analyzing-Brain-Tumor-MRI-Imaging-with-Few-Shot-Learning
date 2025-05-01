@@ -11,9 +11,10 @@ Accurate classification of brain tumors from MRI scans is often hindered by the 
 - 7023 grayscale T1-weighted MRI images
 - Classes: `glioma`, `meningioma`, `pituitary tumor`, `no tumor
 
-- ##Execute
-- `python preprocess.py` – Prepares and splits the MRI dataset
+- ## Execute
+- `python preprocess.py` – Prepares and splits the MRI dataset(already processed)
 - `python train/train_protonet.py` - Train Prototypical Network
 - `python evaluate/eval_protonet.py` - Evaluate on Test Set on Prototypical Network
-- 
+- `python MetaLearningSiamese.ipynb` - Train and Evaluate Siamese Network
+- `python cnn_baseline.ipynb` - Train and Evaluate CNN 
 
